@@ -1,0 +1,16 @@
+/db.php
+/debug.log
+
+/plugins/create-block-theme/
+/plugins/query-monitor/
+/plugins/reorder-multisite-sites-dropdown/
+
+/themes/twentytwentyfive/
+/themes/twentytwentyfour/
+/themes/twentytwentythree/
+/themes/twentytwentytwo/
+/themes/twentytwentyone/
+
+/upgrade/
+/uploads/
+/vendor/
