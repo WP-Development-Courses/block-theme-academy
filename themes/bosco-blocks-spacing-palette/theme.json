@@ -34,6 +34,41 @@
 			"contentSize": "520px",
 			"wideSize": "750px"
 		},
+		"spacing": {
+			"defaultSpacingSizes": false,
+			"spacingSizes": [
+				{
+					"name": "Small",
+					"size": "clamp(0.875rem, 0.875rem + ((1vw - 0.2rem) * 1.165), 1.1875rem)",
+					"slug": "small"
+				},
+				{
+					"name": "Medium",
+					"size": "clamp(1.052rem, 1.052rem + ((1vw - 0.2rem) * 2.132), 1.625rem)",
+					"slug": "medium"
+				},
+				{
+					"name": "Large",
+					"size": "clamp(1.563rem, 1.563rem + ((1vw - 0.2rem) * 3.952), 2.625rem)",
+					"slug": "large"
+				},
+				{
+					"name": "X-Large",
+					"size": "clamp(2.089rem, 2.089rem + ((1vw - 0.2rem) * 6.18), 3.75rem)",
+					"slug": "x-large"
+				},
+				{
+					"name": "XX-Large",
+					"size": "clamp(2.283rem, 2.283rem + ((1vw - 0.2rem) * 7.088), 4.1875rem)",
+					"slug": "xx-large"
+				},
+				{
+					"name": "XXX-Large",
+					"size": "clamp(3.685rem, 3.685rem + ((1vw - 0.2rem) * 14.895), 7.6875rem)",
+					"slug": "xxx-large"
+				}
+			]
+		},
 		"typography": {
 			"defaultFontSizes": false,
 			"fontFamilies": [
@@ -104,13 +139,13 @@
 				},
 				{
 					"fluid": true,
-					"name": "XX Large",
+					"name": "XX-Large",
 					"size": "1.8125rem",
 					"slug": "xx-large"
 				},
 				{
 					"fluid": true,
-					"name": "XXX Large",
+					"name": "XXX-Large",
 					"size": "2.375rem",
 					"slug": "xxx-large"
 				}
