@@ -1,0 +1,122 @@
+{
+	"settings": {
+		"appearanceTools": true,
+		"color": {
+			"palette": [
+				{
+					"color": "#cc0000",
+					"name": "Accent",
+					"slug": "accent"
+				},
+				{
+					"color": "#ffffff",
+					"name": "Base",
+					"slug": "base"
+				},
+				{
+					"color": "#222222",
+					"name": "Contrast",
+					"slug": "contrast"
+				},
+				{
+					"color": "#757575",
+					"name": "Contrast / Two",
+					"slug": "contrast-2"
+				},
+				{
+					"color": "#cccccc",
+					"name": "Contrast / Three",
+					"slug": "contrast-3"
+				}
+			]
+		},
+		"layout": {
+			"contentSize": "520px",
+			"wideSize": "750px"
+		},
+		"typography": {
+			"defaultFontSizes": false,
+			"fontFamilies": [
+				{
+					"fontFace": [
+						{
+							"fontFamily": "Lora",
+							"fontStyle": "normal",
+							"fontWeight": "400",
+							"src": [
+								"file:./assets/fonts/lora/lora-400-normal.woff2"
+							]
+						},
+						{
+							"fontFamily": "Lora",
+							"fontStyle": "normal",
+							"fontWeight": "700",
+							"src": [
+								"file:./assets/fonts/lora/lora-700-normal.woff2"
+							]
+						},
+						{
+							"fontFamily": "Lora",
+							"fontStyle": "italic",
+							"fontWeight": "400",
+							"src": [
+								"file:./assets/fonts/lora/lora-400-italic.woff2"
+							]
+						},
+						{
+							"fontFamily": "Lora",
+							"fontStyle": "italic",
+							"fontWeight": "700",
+							"src": [
+								"file:./assets/fonts/lora/lora-700-italic.woff2"
+							]
+						}
+					],
+					"fontFamily": "Lora, serif",
+					"name": "Lora",
+					"slug": "lora"
+				}
+			],
+			"fontSizes": [
+				{
+					"fluid": true,
+					"name": "Small",
+					"size": "0.875rem",
+					"slug": "small"
+				},
+				{
+					"fluid": true,
+					"name": "Medium",
+					"size": "1rem",
+					"slug": "medium"
+				},
+				{
+					"fluid": true,
+					"name": "Large",
+					"size": "1.1875rem",
+					"slug": "large"
+				},
+				{
+					"fluid": true,
+					"name": "Extra Large",
+					"size": "1.625rem",
+					"slug": "x-large"
+				},
+				{
+					"fluid": true,
+					"name": "XX Large",
+					"size": "1.8125rem",
+					"slug": "xx-large"
+				},
+				{
+					"fluid": true,
+					"name": "XXX Large",
+					"size": "2.375rem",
+					"slug": "xxx-large"
+				}
+			]
+		}
+	},
+	"version": 3,
+	"$schema": "https://schemas.wp.org/wp/6.7/theme.json"
+}
