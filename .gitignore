@@ -1,3 +1,4 @@
+/.DS_Store
 /db.php
 /debug.log
 
@@ -5,6 +6,7 @@
 /plugins/query-monitor/
 /plugins/reorder-multisite-sites-dropdown/
 
+/themes/bosc-blocks/
 /themes/twentytwentyfive/
 /themes/twentytwentyfour/
 /themes/twentytwentythree/
