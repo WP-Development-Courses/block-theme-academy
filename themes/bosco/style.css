@@ -1,0 +1,740 @@
+/*
+Theme Name: Bosco
+Theme URI: https://wordpress.com/themes/bosco/
+Author: Automattic
+Author URI: https://wordpress.com/themes/
+Description: A personal blog theme with a responsive layout and beautiful typography.
+Version: 1.2
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: accessibility-ready, responsive-layout, one-column, custom-background, custom-header, custom-menu, featured-images, rtl-language-support, editor-style, post-formats, translation-ready, photoblogging, red, black, white, light
+
+Bosco is based on Aldus http://wordpress.org/themes/aldus/, (C) 2013 Frank Klein.
+Bosco is based on Underscores http://underscores.me/, (C) 2012-2014 Automattic, Inc.
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+*/
+
+/*--------------------------------------------------------------
+1.0 - Reset
+--------------------------------------------------------------*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+	border: 0;
+	font-family: inherit;
+	font-size: 100%;
+	font-style: inherit;
+	font-weight: inherit;
+	margin: 0;
+	outline: 0;
+	padding: 0;
+	vertical-align: baseline;
+}
+html {
+	overflow-y: scroll; /* Keeps page centered in all browsers regardless of content height */
+	-webkit-text-size-adjust: 100%; /* Prevents iOS text size adjust after orientation change, without disabling user zoom */
+	-ms-text-size-adjust:     100%; /* www.456bereastreet.com/archive/201012/controlling_text_size_in_safari_for_ios_without_disabling_user_zoom/ */
+}
+*,
+*:before,
+*:after { /* apply a natural box layout model to all elements; see http://www.paulirish.com/2012/box-sizing-border-box-ftw/ */
+	-webkit-box-sizing: border-box; /* Not needed for modern webkit but still used by Blackberry Browser 7.0; see http://caniuse.com/#search=box-sizing */
+	-moz-box-sizing:    border-box; /* Still needed for Firefox 28; see http://caniuse.com/#search=box-sizing */
+	box-sizing:         border-box;
+}
+body {
+	background: #fff;
+}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+main,
+nav,
+section {
+	display: block;
+}
+ol, ul {
+	list-style: none;
+}
+table { /* tables still need 'cellspacing="0"' in the markup */
+	border-collapse: separate;
+	border-spacing: 0;
+}
+caption, th, td {
+	font-weight: normal;
+	text-align: left;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: "";
+}
+blockquote, q {
+	quotes: "" "";
+}
+a:focus {
+	outline: thin dotted;
+}
+a:hover,
+a:active {
+	outline: 0;
+}
+a img {
+	border: 0;
+}
+
+
+/*--------------------------------------------------------------
+2.0 Global
+--------------------------------------------------------------*/
+:root {
+	--wp--preset--aspect-ratio--square: 1;
+	--wp--preset--aspect-ratio--4-3: 4/3;
+	--wp--preset--aspect-ratio--3-4: 3/4;
+	--wp--preset--aspect-ratio--3-2: 3/2;
+	--wp--preset--aspect-ratio--2-3: 2/3;
+	--wp--preset--aspect-ratio--16-9: 16/9;
+	--wp--preset--aspect-ratio--9-16: 9/16;
+	--wp--preset--color--black: #000000;
+	--wp--preset--color--cyan-bluish-gray: #abb8c3;
+	--wp--preset--color--white: #ffffff;
+	--wp--preset--color--pale-pink: #f78da7;
+	--wp--preset--color--vivid-red: #cf2e2e;
+	--wp--preset--color--luminous-vivid-orange: #ff6900;
+	--wp--preset--color--luminous-vivid-amber: #fcb900;
+	--wp--preset--color--light-green-cyan: #7bdcb5;
+	--wp--preset--color--vivid-green-cyan: #00d084;
+	--wp--preset--color--pale-cyan-blue: #8ed1fc;
+	--wp--preset--color--vivid-cyan-blue: #0693e3;
+	--wp--preset--color--vivid-purple: #9b51e0;
+	--wp--preset--color--accent: #cc0000;
+	--wp--preset--color--base: #ffffff;
+	--wp--preset--color--contrast: #222222;
+	--wp--preset--color--contrast-2: #757575;
+	--wp--preset--color--contrast-3: #cccccc;
+	--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg, rgba(6, 147, 227, 1) 0%, rgb(155, 81, 224) 100%);
+	--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg, rgb(122, 220, 180) 0%, rgb(0, 208, 130) 100%);
+	--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg, rgba(252, 185, 0, 1) 0%, rgba(255, 105, 0, 1) 100%);
+	--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg, rgba(255, 105, 0, 1) 0%, rgb(207, 46, 46) 100%);
+	--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg, rgb(238, 238, 238) 0%, rgb(169, 184, 195) 100%);
+	--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg, rgb(74, 234, 220) 0%, rgb(151, 120, 209) 20%, rgb(207, 42, 186) 40%, rgb(238, 44, 130) 60%, rgb(251, 105, 98) 80%, rgb(254, 248, 76) 100%);
+	--wp--preset--gradient--blush-light-purple: linear-gradient(135deg, rgb(255, 206, 236) 0%, rgb(152, 150, 240) 100%);
+	--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg, rgb(254, 205, 165) 0%, rgb(254, 45, 45) 50%, rgb(107, 0, 62) 100%);
+	--wp--preset--gradient--luminous-dusk: linear-gradient(135deg, rgb(255, 203, 112) 0%, rgb(199, 81, 192) 50%, rgb(65, 88, 208) 100%);
+	--wp--preset--gradient--pale-ocean: linear-gradient(135deg, rgb(255, 245, 203) 0%, rgb(182, 227, 212) 50%, rgb(51, 167, 181) 100%);
+	--wp--preset--gradient--electric-grass: linear-gradient(135deg, rgb(202, 248, 128) 0%, rgb(113, 206, 126) 100%);
+	--wp--preset--gradient--midnight: linear-gradient(135deg, rgb(2, 3, 129) 0%, rgb(40, 116, 252) 100%);
+	--wp--preset--font-size--small: 0.875rem;
+	--wp--preset--font-size--medium: clamp(0.875rem, 0.875rem + ((1vw - 0.2rem) * 0.465), 1rem);
+	--wp--preset--font-size--large: clamp(0.875rem, 0.875rem + ((1vw - 0.2rem) * 1.165), 1.188rem);
+	--wp--preset--font-size--x-large: clamp(1.052rem, 1.052rem + ((1vw - 0.2rem) * 2.132), 1.625rem);
+	--wp--preset--font-size--xx-large: clamp(1.152rem, 1.152rem + ((1vw - 0.2rem) * 2.46), 1.813rem);
+	--wp--preset--font-size--xxx-large: clamp(1.44rem, 1.44rem + ((1vw - 0.2rem) * 3.479), 2.375rem);
+	--wp--preset--font-family--lora: Lora, serif;
+	--wp--preset--spacing--20: 0.44rem;
+	--wp--preset--spacing--30: 0.67rem;
+	--wp--preset--spacing--40: 1rem;
+	--wp--preset--spacing--50: 1.5rem;
+	--wp--preset--spacing--60: 2.25rem;
+	--wp--preset--spacing--70: 3.38rem;
+	--wp--preset--spacing--80: 5.06rem;
+	--wp--preset--spacing--small: clamp(0.875rem, 0.875rem + ((1vw - 0.2rem) * 1.165), 1.1875rem);
+	--wp--preset--spacing--medium: clamp(1.052rem, 1.052rem + ((1vw - 0.2rem) * 2.132), 1.625rem);
+	--wp--preset--spacing--large: clamp(1.563rem, 1.563rem + ((1vw - 0.2rem) * 3.952), 2.625rem);
+	--wp--preset--spacing--x-large: clamp(2.089rem, 2.089rem + ((1vw - 0.2rem) * 6.18), 3.75rem);
+	--wp--preset--spacing--xx-large: clamp(2.283rem, 2.283rem + ((1vw - 0.2rem) * 7.088), 4.1875rem);
+	--wp--preset--spacing--xxx-large: clamp(3.685rem, 3.685rem + ((1vw - 0.2rem) * 14.895), 7.6875rem);
+	--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);
+	--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);
+	--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);
+	--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);
+	--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);
+}
+
+:root {
+	--wp--style--global--content-size: 520px;
+	--wp--style--global--wide-size: 750px;
+}
+
+
+body,
+button,
+input,
+select,
+textarea {
+	color: var(--wp--preset--color--contrast);
+	font-family: Lora, Georgia, serif;
+	line-height: 1.45;
+}
+
+/* Headings */
+h1,h2, h3, h4, h5, h6 {
+	clear: both;
+	font-weight: 700;
+	line-height: 1.3;
+	margin: 0 0 var(--wp--preset--spacing--medium) 0;
+}
+h1 {
+	font-size: var(--wp--preset--font-size--xx-large);
+}
+h2 {
+	font-size: var(--wp--preset--font-size--x-large);
+}
+h3 {
+	font-size: var(--wp--preset--font-size--large);
+}
+h4 {
+	font-size: var(--wp--preset--font-size--medium);
+}
+h5 {
+	font-size: var(--wp--preset--font-size--medium);
+	font-style: italic;
+}
+h6 {
+	font-size: var(--wp--preset--font-size--medium);
+	font-style: italic;
+	font-weight: normal;
+}
+
+/* Text elements */
+p {
+	margin-bottom: var(--wp--preset--spacing--medium);
+}
+p:last-child {
+	margin-bottom: 0;
+}
+ul, ol {
+	margin: 0 0 var(--wp--preset--spacing--medium) 1.2rem;
+}
+ul {
+	list-style: disc;
+}
+ol {
+	list-style: decimal;
+}
+li > ul,
+li > ol {
+	margin-bottom: 0;
+}
+dt {
+	font-weight: bold;
+}
+b, strong {
+	font-weight: 700;
+}
+dfn, cite, em, i {
+	font-style: italic;
+}
+blockquote {
+	border-left: 2px solid #ddd;
+	font-style: italic;
+	font-weight: 300;
+	margin: 0 0 1.618rem 0;
+	padding: 0 clamp(1.152rem, 1.152rem + ((1vw - 0.2rem) * 2.46), 1.813rem);
+}
+pre {
+	background: #eee;
+	font-family: "Courier 10 Pitch", Courier, monospace;
+	font-size: 0.9rem;
+	line-height: 1.6;
+	margin-bottom: 1.618em;
+	max-width: 100%;
+	overflow: auto;
+	padding: 1.6em;
+}
+figure {
+	margin: 0;
+}
+table {
+	border-bottom: 1px solid #ccc;
+	margin: 0 0 1.618rem 0;
+	width: 100%;
+}
+th {
+	border-top: 1px solid #ccc;
+	font-weight: bold;
+	padding: 0.5rem 0.5rem 0.5rem 0;
+}
+td {
+	border-top: 1px solid #ccc;
+	padding: 0.5rem 0.5rem 0.5rem 0;
+}
+img {
+	height: auto; /* Make sure images are scaled correctly. */
+	max-width: 100%; /* Adhere to container width. */
+}
+button,
+input,
+select,
+textarea {
+	font-size: 100%; /* Corrects font size not being inherited in all browsers */
+	margin: 0; /* Addresses margins set differently in IE6/7, F3/4, S5, Chrome */
+	vertical-align: baseline; /* Improves appearance and consistency in all browsers */
+	*vertical-align: middle; /* Improves appearance and consistency in all browsers */
+}
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+	background-color: #c00;
+	border: 0;
+	color: #fff;
+	cursor: pointer; /* Improves usability and consistency of cursor style between image-type 'input' and others */
+	font-size: var(--wp--preset--font-size--medium);
+	font-weight: bold;
+	line-height: 1;
+	padding: 0.918em 1em;
+	text-transform: uppercase;
+	-webkit-appearance: button; /* Corrects inability to style clickable 'input' types in iOS */
+}
+input[type="checkbox"],
+input[type="radio"] {
+	padding: 0; /* Addresses excess padding in IE8/9 */
+}
+input[type="search"] {
+	-webkit-appearance: textfield; /* Addresses appearance set to searchfield in S5, Chrome */
+	-webkit-box-sizing: content-box; /* Addresses box sizing set to border-box in S5, Chrome (include -moz to future-proof) */
+	-moz-box-sizing:    content-box;
+	box-sizing:         content-box;
+}
+input[type="search"]::-webkit-search-decoration { /* Corrects inner padding displayed oddly in S5, Chrome on OSX */
+	-webkit-appearance: none;
+}
+button::-moz-focus-inner,
+input::-moz-focus-inner { /* Corrects inner padding and border displayed oddly in FF3/4 www.sitepen.com/blog/2008/05/14/the-devils-in-the-details-fixing-dojos-toolbar-buttons/ */
+	border: 0;
+	padding: 0;
+}
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"] {
+	border: 1px solid #757575;
+	border-radius: 0;
+	line-height: 1;
+	max-width: 100%;
+	padding: 0.428em;
+}
+textarea {
+	border: 1px solid #757575;
+	overflow: auto; /* Removes default vertical scrollbar in IE6/7/8/9 */
+	padding: 0.428em;
+	vertical-align: top; /* Improves readability and alignment in all browsers */
+}
+
+/* Links */
+a {
+	color: #c00;
+}
+a:visited {
+	color: #c00;
+}
+a:focus,
+a:active {
+	outline: thin dotted;
+}
+
+/* Alignment */
+.alignleft {
+	display: inline;
+	float: left;
+	margin-right: 1.618rem;
+}
+.alignright {
+	display: inline;
+	float: right;
+	margin-left: 1.618rem;
+}
+.aligncenter {
+	clear: both;
+	display: block;
+	margin: 0 auto;
+}
+
+/* Text meant only for screen readers */
+.screen-reader-text {
+	clip: rect(1px, 1px, 1px, 1px);
+	position: absolute !important;
+}
+
+.screen-reader-text:hover,
+.screen-reader-text:active,
+.screen-reader-text:focus {
+	background-color: #f1f1f1;
+	border-radius: 3px;
+	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+	clip: auto !important;
+	color: #21759b;
+	display: block;
+	font-size: var(--wp--preset--font-size--medium);
+	font-weight: bold;
+	height: auto;
+	left: 5px;
+	line-height: normal;
+	padding: 0.918em 1em;
+	text-decoration: none;
+	top: 5px;
+	width: auto;
+	z-index: 100000; /* Above WP toolbar */
+}
+
+/* Clearing */
+.clear:before,
+.clear:after,
+.entry-content:before,
+.entry-content:after,
+.entry-meta:before,
+.entry-meta:after,
+.comment-content:before,
+.comment-content:after,
+.comment-navigation:before,
+.comment-navigation:after,
+.image-navigation:before,
+.image-navigation:after,
+.main-navigation ul:before,
+.main-navigation ul:after,
+.main-navigation li:before,
+.main-navigation li:after,
+.nav-links:before,
+.nav-links:after,
+.site-header:before,
+.site-header:after,
+.site-content:before,
+.site-content:after,
+.footer-widget-area:before,
+.footer-widget-area:after,
+.site-footer:before,
+.site-footer:after {
+	content: '';
+	display: table;
+}
+
+.clear:after,
+.entry-content:after,
+.entry-meta:after,
+.comment-content:after,
+.comment-navigation:after,
+.image-navigation:after,
+.main-navigation ul:after,
+.nav-links:after,
+.site-header:after,
+.site-content:after,
+.footer-widget-area:after,
+.site-footer:after {
+	clear: both;
+}
+
+/*--------------------------------------------------------------
+3.0 Menu
+--------------------------------------------------------------*/
+
+.main-navigation {
+	border-bottom: 1px solid #ccc;
+	border-top: 1px solid #ccc;
+	margin: 0 auto;
+}
+.main-navigation ul {
+	list-style: none;
+	margin: 0;
+	text-align: center;
+}
+.main-navigation li {
+	display: inline-block;
+	padding: var(--wp--preset--spacing--small);
+	position: relative;
+	text-align: left;
+}
+.main-navigation a {
+	color: var(--wp--preset--color--contrast);
+	display: block;
+	font-weight: bold;
+	text-decoration: none;
+	text-transform: uppercase;
+	-ms-word-wrap: break-word;
+		word-wrap: break-word;
+}
+
+/*--------------------------------------------------------------
+4.0 Layout
+--------------------------------------------------------------*/
+
+.site {
+	background-color: #fff;
+	border-bottom: 5px solid #cc0000;
+	border-top: 5px solid #cc0000;
+	margin: 0 auto;
+	max-width: 840px;
+}
+.site-main {
+	margin: 0 auto;
+	max-width: 750px;
+}
+
+/*--------------------------------------------------------------
+5.0 Masthead
+--------------------------------------------------------------*/
+
+.site-branding {
+	margin: 0 auto;
+	padding: var(--wp--preset--spacing--large) 0;
+}
+.site-title {
+	margin: 0;
+	text-align: center;
+}
+.site-title a {
+	border: none;
+	text-decoration: none;
+}
+
+/*--------------------------------------------------------------
+6.0 Content
+--------------------------------------------------------------*/
+
+.entry-thumbnail {
+	text-align: center;
+}
+.entry-content,
+.entry-meta {
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 520px;
+}
+.entry-meta {
+	color: #757575;
+}
+.hentry {
+	margin-top: var(--wp--preset--spacing--xxx-large);;
+}
+.single .hentry {
+	margin-top: var(--wp--preset--spacing--xx-large);
+}
+.updated {
+	display: none;
+}
+.entry-title,
+.page-title {
+	font-size: var(--wp--preset--font-size--xxx-large);;
+	margin-bottom: 0;
+	text-align: center;
+	-ms-word-wrap: break-word;
+		word-wrap: break-word;
+}
+.entry-title a {
+	color: var(--wp--preset--color--contrast);
+	text-decoration: none;
+}
+.entry-header,
+.entry-thumbnail {
+	margin-bottom: var(--wp--preset--spacing--large);
+}
+.entry-content {
+	-ms-word-wrap: break-word;
+	    word-wrap: break-word;
+}
+.entry-meta {
+	border-top: 1px solid #ccc;
+	margin-top: var(--wp--preset--spacing--large);
+	padding-top: var(--wp--preset--spacing--small);
+}
+.categories-tags {
+	clear: both;
+	padding-top: var(--wp--preset--spacing--medium);
+}
+.cat-links + .tags-links:before,
+.byline:before,
+.edit-link:before,
+.permalink:before {
+	content: " \2022\ ";
+}
+.page .edit-link:before {
+	content: '';
+}
+.entry-categories-tags {
+	margin-top: 1rem;
+}
+.entry-categories-tags .categories,
+.entry-categories-tags .tags {
+	margin: 0;
+}
+
+/* Pages */
+.page-header {
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 520px;
+	margin-top: var(--wp--preset--spacing--xx-large);
+}
+.page-title {
+	font-size: var(--wp--preset--font-size--xxx-large);
+	margin-bottom: 0;
+	text-align: center;
+	-ms-word-wrap: break-word;
+		word-wrap: break-word;
+}
+
+/* Not found */
+.not-found {
+	margin: 4.236rem 0;
+}
+
+/*--------------------------------------------------------------
+8.0 Media
+--------------------------------------------------------------*/
+
+/* Smilies */
+.page-content img.wp-smiley,
+.entry-content img.wp-smiley,
+.comment-content img.wp-smiley {
+	border: none;
+	margin-bottom: 0;
+	margin-top: 0;
+	padding: 0;
+}
+
+/* Images */
+.wp-caption {
+	max-width: 520px;
+	padding-bottom: 1rem;
+}
+.wp-caption-text {
+	font-size: 0.875rem;
+	margin-top: 0.875rem;
+	text-align: center;
+}
+
+/* Make right and left aligned images stick out from the content */
+.wp-caption.alignleft,
+img.alignleft {
+	margin-left: -115px;
+	max-width: 750px;
+}
+.wp-caption.alignright,
+img.alignright {
+	margin-right: -115px;
+	max-width: 750px;
+}
+
+/* Stand alone full size and large images in the standard format */
+.size-full,
+.size-large {
+	max-width: 750px;
+}
+
+/* If the image is smaller than 750px and inside a caption keep it at 520px */
+.wp-caption.smaller-than-750 {
+	margin-left: auto;
+}
+.wp-caption.smaller-than-750 .size-full,
+.wp-caption.smaller-than-750 .size-large {
+	max-width: 520px;
+}
+.size-full.alignnone,
+.size-full.aligncenter,
+.size-large.alignnone,
+.size-large.aligncenter {
+	margin-left: -115px;
+}
+
+/* Full size and large images with a caption */
+.wp-caption.width-750 {
+	margin-left: -115px;
+	max-width: 750px;
+}
+.wp-caption.width-750 img {
+	margin-left: auto;
+}
+
+/* Make sure embeds and iframes fit their containers */
+embed,
+iframe,
+object {
+	max-width: 100%;
+}
+
+/*--------------------------------------------------------------
+10.0 Navigation
+--------------------------------------------------------------*/
+
+.paging-navigation,
+.post-navigation {
+	font-size: var(--wp--preset--font-size--x-large);
+	margin-top: var(--wp--preset--spacing--xx-large);
+}
+[class*="navigation"] .nav-previous {
+	float: left;
+	width: 50%;
+}
+[class*="navigation"] .nav-next {
+	float: right;
+	text-align: right;
+	width: 50%;
+}
+.nav-previous .meta-nav {
+	color: #cc0000;
+	float: left;
+	margin-right: 1rem;
+}
+.nav-next .meta-nav {
+	color: #cc0000;
+	float: right;
+	margin-left: 1rem;
+}
+.nav-previous .link,
+.nav-next .link {
+	overflow: hidden;
+}
+
+/*--------------------------------------------------------------
+12.0 Footer
+--------------------------------------------------------------*/
+
+.site-footer {
+	border-top: 1px solid #ccc;
+	color: #757575;
+	margin-top: var(--wp--preset--spacing--x-large);
+	padding: clamp(0.875rem, 0.875rem + ((1vw - 0.2rem) * 1.165), 1.1875rem);
+}
+#wpstats {
+	display: none;
+}
+
+/*--------------------------------------------------------------
+13.0 Search
+--------------------------------------------------------------*/
+
+.search-results .content-area {
+	margin: 0 auto 4.1875rem auto;
+	max-width: 750px;
+}
+
+/*--------------------------------------------------------------
+14.0 404
+--------------------------------------------------------------*/
+
+.error-404 .page-content {
+	margin-top: var(--wp--preset--spacing--large);
+}
+.error-404 .search-form {
+	margin: var(--wp--preset--spacing--medium) 0;
+	text-align: center;
+}
