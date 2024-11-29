@@ -513,6 +513,9 @@ a:active {
 .entry-thumbnail {
 	text-align: center;
 }
+.entry-thumbnail img {
+	vertical-align: bottom;
+}
 .entry-content,
 .entry-meta {
 	margin-left: auto;
